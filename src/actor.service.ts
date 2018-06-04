@@ -31,6 +31,22 @@ export class ActorService {
       return arreglo[0];
     }
   }
+
+/*  buscarActorId(id: number, actor: Actor): number {
+
+    const arreglo = this.actores.filter(
+      (usuario: Actor) => {
+        return usuario.id === id; // true, false
+      },
+    );
+    if (arreglo == null) {
+      return null;
+    } else {
+      return arreglo[0].id;
+    }
+    this.actores[id] = actor;
+
+  }*/
 }
 
 export interface Actor {

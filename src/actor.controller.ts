@@ -22,7 +22,7 @@ export class ActorController {
   }
 
   @Get(':id')
-    obtenerUno(@Req() request, @Res() response){
+    mostrarUno(@Req() request, @Res() response){
 
     const actor = this._actorService.buscarActor(request.params.id);
     if (actor == null){
@@ -41,6 +41,4 @@ export class ActorController {
     const valor = request.params.id;
     this._actorService.remplazarActor(valor, actorModificado);
   }
-
-
 }
