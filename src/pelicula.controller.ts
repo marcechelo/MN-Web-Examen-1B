@@ -1,5 +1,4 @@
 import { Body, Controller, Get, NotFoundException, Post, Put, Req, Res } from '@nestjs/common';
-import { ActorService } from './actor.service';
 import { ActorBadRequestPipe } from './pipes/actor-bad-request.pipe';
 import { PELICULA_SCHEMA } from './pelicula/pelicula.schema';
 import { PeliculaService } from './pelicula.service';
