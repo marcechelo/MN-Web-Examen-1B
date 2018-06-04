@@ -42,26 +42,5 @@ export class ActorController {
     this._actorService.remplazarActor(valor, actorModificado);
   }
 
-  /*@Put(':id')
-  editarUno(@Req() request, @Body(new ActorBadRequestPipe(ACTOR_SCHEMA)) actorModificado){
-    const actor = this._actorService.buscarActor(request.params.id);
-    if (actor == null){
-      throw new NotFoundException(
-        {
-          // erorr: error,
-          mensaje: 'No se encontro actor',
-        },
-      );
-    } else{
-
-      // this._actorService.buscarActor(request.params.id) = actorModificado;
-      this._actorService.buscarActor(request.params.id).nombre = actorModificado.nombre;
-      this._actorService.buscarActor(request.params.id).apellido = actorModificado.apellido;
-      this._actorService.buscarActor(request.params.id).fechaNacimiento = actorModificado.fechaNacimiento;
-      this._actorService.buscarActor(request.params.id).numeroPeliculas = actorModificado.numeroPeliculas;
-      this._actorService.buscarActor(request.params.id).retirado = actorModificado.retirado;
-      this._actorService.buscarActor(request.params.id).id = actorModificado.id;
-      return actorModificado; }
-  }*/
 
 }

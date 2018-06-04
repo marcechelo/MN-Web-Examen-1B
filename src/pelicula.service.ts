@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Actor } from './actor.service';
 
 @Injectable()
 export class PeliculaService {
@@ -13,6 +14,25 @@ export class PeliculaService {
   mostrarPelicula(): Pelicula[]{
     return this.peliculas;
   }
+
+  remplazarPelicula(id: number, pelicula: Pelicula){
+    this.peliculas[id] = pelicula;
+  }
+
+  buscarPelicula(nombre1: string): Pelicula {
+
+    const arreglo = this.peliculas.filter(
+      (pelicula: Pelicula) => {
+        return pelicula.nombre === nombre1; // true, false
+      },
+    );
+    if (arreglo == null) {
+      return null;
+    } else {
+      return arreglo[0];
+    }
+  }
+
 }
 
 export interface Pelicula {
