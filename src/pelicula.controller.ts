@@ -2,21 +2,22 @@ import { Body, Controller, Get, NotFoundException, Post, Put, Req, Res } from '@
 import { ActorService } from './actor.service';
 import { ActorBadRequestPipe } from './pipes/actor-bad-request.pipe';
 import { PELICULA_SCHEMA } from './pelicula/pelicula.schema';
+import { PeliculaService } from './pelicula.service';
 
 @Controller('Pelicula')
 export class PeliculaController {
 
-  constructor(private _peliculaService: ActorService){}
+  constructor(private _peliculaService: PeliculaService){}
 
   @Get()
   listarTodos(@Res() response){
-    return response.send(this._peliculaService.mostrarActor());
+    return response.send(this._peliculaService.mostrarPelicula());
   }
 
   @Post()
   crearActor(@Body(new ActorBadRequestPipe(PELICULA_SCHEMA)) nuevaPelicula){
 
-    const peliculaCreada = this._peliculaService.crearActor(nuevaPelicula);
+    const peliculaCreada = this._peliculaService.crearPelicula(nuevaPelicula);
     return nuevaPelicula;
 
   }
@@ -24,22 +25,22 @@ export class PeliculaController {
   @Get(':id')
   obtenerUno(@Req() request, @Res() response){
 
-    const actor = this._peliculaService.buscarActor(request.params.id);
-    if (actor == null){
+    const pelicula = this._peliculaService.buscarPelicula(request.params.id);
+    if (pelicula == null){
       throw new NotFoundException(
         {
           // erorr: error,
-          mensaje: 'No se encontro actor',
+          mensaje: 'No se encontro pelicula',
         },
       );
     } else{
-      return response.send(actor); }
+      return response.send(pelicula); }
   }
 
   @Put(':id')
   editarUno(@Req() request, @Body(new ActorBadRequestPipe(PELICULA_SCHEMA)) peliculaModificado){
     const valor = request.params.id;
-    this._peliculaService.remplazarActor(valor, peliculaModificado);
+    this._peliculaService.remplazarPelicula(valor, peliculaModificado);
   }
 
 }
