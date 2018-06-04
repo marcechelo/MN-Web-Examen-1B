@@ -9,7 +9,7 @@ import { AutorizacionController } from './autorizacion.controller';
 
 @Module({
   imports: [],
-  controllers: [AppController, ActorController, PeliculaController,AutorizacionController],
+  controllers: [AppController, ActorController, PeliculaController, AutorizacionController],
   providers: [AppService, ActorService, PeliculaService],
 })
 export class AppModule {}

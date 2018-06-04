@@ -1,17 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { Actor } from './actor.service';
 
 @Injectable()
 export class PeliculaService {
 
-  peliculas: Pelicula[]= [];
+  peliculas: Pelicula[] = [];
 
-  crearPelicula(pelicula: Pelicula): Pelicula{
+  crearPelicula(pelicula: Pelicula): Pelicula {
     this.peliculas.push(pelicula);
     return pelicula;
   }
 
-  mostrarPelicula(): Pelicula[]{
+  mostrarPelicula(): Pelicula[] {
     return this.peliculas;
   }
 
@@ -22,8 +21,8 @@ export class PeliculaService {
   buscarPelicula(nombre1: string): Pelicula {
 
     const arreglo = this.peliculas.filter(
-      (pelicula: Pelicula) => {
-        return pelicula.nombre === nombre1; // true, false
+      (usuario: Pelicula) => {
+        return usuario.nombre === nombre1; // true, false
       },
     );
     if (arreglo == null) {
@@ -32,7 +31,6 @@ export class PeliculaService {
       return arreglo[0];
     }
   }
-
 }
 
 export interface Pelicula {
